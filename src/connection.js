@@ -1,28 +1,24 @@
-import knex from "knex";
+const knex = require("knex");
 
 const clientConf = {
-  client: "mssql",
+  client: "pg",
 };
 
-const connectionConfig = {
-  server: process.env.MSSQL_SERVER,
-  password: process.env.MSSQL_PASSWORD,
-  userName: process.env.MSSQL_USERNAME,
-  database: "",
-  port: +process.env.MSSQL_PORT,
-  options: {
-    trustedConnection: true,
-  },
-};
+// const connectionConfig = {
+//   connectionString: process.env.DATABASE_URL,
+//   host: process.env.DB_HOST,
+//   port: process.env.DB_PORT,
+//   user: process.env.DB_USER,
+//   database: process.env.DB_NAME,
+//   password: process.env.DB_PASSWORD,
+//   ssl: process.env.DB_SSL ? { rejectUnauthorized: false } : false,
+// };
 
-export const DBConnection = {
-  Test: () => {
+module.exports = DBConnection = {
+  HR: () => {
     return knex({
       ...clientConf,
-      connection: {
-        ...connectionConfig,
-        database: "",
-      },
+      connection: process.env.DATABASE_URL,
     });
   },
 };
