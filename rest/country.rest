@@ -1,0 +1,13 @@
+@base_url=https://3000-prmiguel-dbqueryservice-wun5hjcgkvp.ws-us114.gitpod.io
+
+### Test
+GET {{base_url}}/data
+?? status == 200
+
+
+### Get country by Id
+GET {{base_url}}/
+  ?field=country_id
+  &value=IT
+table: public.countries
+?? status == 200
