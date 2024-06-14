@@ -21,6 +21,17 @@ app.get("/", (req, res) => {
     });
 });
 
+app.get("/table", (req, res) => {
+  const name = req.query.name;
+  dbConnection
+    .HR()
+    .table(name)
+    .columnInfo()
+    .then((result) => {
+      res.send(result);
+    });
+});
+
 app.post("/query", (req, res) => {
   const data = req.body;
 

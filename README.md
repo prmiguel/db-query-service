@@ -1,4 +1,5 @@
 # db-query-service
+`NodeJS` `Express` `JS` `Docker` `ngRok` `Postgress` `ElephantSQL` `SQL` `httpyac` `knex`
 
 ```sh
 export DATABASE_URL=
